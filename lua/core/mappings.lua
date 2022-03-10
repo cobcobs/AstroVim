@@ -17,6 +17,14 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Better j and k
+map("n", "j", "v:count ? 'j' : 'gj'", { noremap = true, expr = true })
+map("n", "k", "v:count ? 'k' : 'gk'", { noremap = true, expr = true })
+
+-- Change word under cursor (with dot repeatability)
+map("n", "cn", [[/\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]], opts)
+map("n", "cN", [[?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]], opts)
+
 -- Resize with arrows
 map("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
 map("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
@@ -56,14 +64,7 @@ if config.enabled.nvim_tree then
 end
 
 -- Dashboard
-if config.enabled.dashboard then
-  map("n", "<leader>d", "<cmd>Dashboard<CR>", opts)
-  map("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
-  map("n", "<leader>db", "<cmd>Dashboard<CR>", opts)
-  map("n", "<leader>bm", "<cmd>DashboardJumpMarks<CR>", opts)
-  map("n", "<leader>sl", "<cmd>SessionLoad<CR>", opts)
-  map("n", "<leader>ss", "<cmd>SessionSave<CR>", opts)
-end
+map("n", "<leader>d", ":lua MiniStarter.open()<CR>", opts)
 
 -- GitSigns
 if config.enabled.gitsigns then
@@ -115,15 +116,21 @@ if config.enabled.comment then
   map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 end
 
--- ForceWrite
-map("n", "<C-w>", "<cmd>w!<CR>", opts)
-
--- ForceQuit
-map("n", "<C-q>", "<cmd>q!<CR>", opts)
+-- ToggleQuickFix
+vim.cmd [[
+  function! QuickFixToggle()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      copen
+    else
+      cclose
+    endif
+  endfunction
+]]
+map("n", "<C-q>", ":call QuickFixToggle()<CR>", opts)
 
 -- Terminal
 if config.enabled.toggle_term then
-  map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
+  map("n", "<C-t>", "<cmd>ToggleTerm<CR>", opts)
   map("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
   map("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", opts)
   map("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", opts)

@@ -11,31 +11,27 @@ vim.cmd [[
   augroup end
 ]]
 
--- vim.cmd [[
---   augroup cursor_off
---     autocmd!
---     autocmd WinLeave * set nocursorline
---     autocmd WinEnter * set cursorline
---   augroup end
--- ]]
+vim.cmd [[
+  augroup packer_conf
+    autocmd!
+    autocmd bufwritepost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
-if config.enabled.dashboard and config.enabled.bufferline then
-  vim.cmd [[
-    augroup dashboard_settings
-      autocmd!
-      autocmd FileType dashboard set showtabline=0
-      autocmd BufWinLeave <buffer> set showtabline=2
-      autocmd BufEnter * if &ft is "dashboard" | set laststatus=0 | else | set laststatus=0 | endif
-      autocmd BufEnter * if &ft is "dashboard" | set nocursorline | endif
-    augroup end
-  ]]
-end
+vim.cmd [[
+  autocmd insertenter * set norelativenumber
+  autocmd insertleave * set relativenumber
+]]
+
+vim.cmd [[autocmd TermOpen * lua vim.b.miniindentscope_disable = true]]
 
 vim.cmd(string.format(
   [[
     augroup colorscheme
       autocmd!
       autocmd VimEnter * colorscheme %s
+      autocmd Colorscheme * highlight! link LspFloatWinNormal NormalFloat
+      autocmd Colorscheme * source $HOME/.config/nvim/lua/user/colors.lua
     augroup end]],
   colorscheme
 ))

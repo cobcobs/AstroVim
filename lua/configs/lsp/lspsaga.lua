@@ -43,7 +43,7 @@ function M.config()
       exec = "<CR>",
     },
     definition_preview_icon = "  ",
-    border_style = "round",
+    border_style = "none",
     rename_prompt_prefix = "➤ ",
     server_filetype_map = {},
     diagnostic_prefix_format = "%d. ",

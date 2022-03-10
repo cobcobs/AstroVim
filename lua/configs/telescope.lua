@@ -19,17 +19,25 @@ function M.config()
       sorting_strategy = "ascending",
       layout_strategy = "horizontal",
       layout_config = {
+        width = 0.90,
+        height = 0.85,
+        preview_cutoff = 120,
         horizontal = {
           prompt_position = "top",
-          preview_width = 0.55,
-          results_width = 0.8,
+          preview_width = function(_, cols, _)
+            return math.floor(cols * 0.6)
+          end,
         },
         vertical = {
-          mirror = false,
+          width = 0.9,
+          height = 0.95,
+          preview_height = 0.5,
         },
-        width = 0.87,
-        height = 0.80,
-        preview_cutoff = 120,
+        flex = {
+          horizontal = {
+            preview_width = 0.9,
+          },
+        },
       },
 
       mappings = {
@@ -94,7 +102,12 @@ function M.config()
         },
       },
     },
-    pickers = {},
+    pickers = {
+      find_command = { "fd", "--hidden" }
+    },
+    vimgrep_arguments = {
+      "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden", "--glob=!.git/"
+    },
     extensions = {
       fzf = {
         fuzzy = true,

@@ -2,6 +2,10 @@ local M = {}
 
 local set = vim.opt
 
+set.title = true -- Change neovim window title
+set.ruler = false -- Disable ruler
+set.fcs = [[eob: ]] -- Disable ~ characters in the end of the buffer
+set.laststatus = 0 -- Disable builtin statusline
 set.fileencoding = "utf-8" -- File content encoding for the buffer
 set.spelllang = "en" -- Support US english
 set.clipboard = "unnamedplus" -- Connection to the system clipboard
@@ -25,10 +29,10 @@ set.swapfile = false -- Disable use of swapfile for the buffer
 set.termguicolors = true -- Enable 24-bit RGB color in the TUI
 set.undofile = true -- Enable persistent undo
 set.writebackup = false -- Disable making a backup before overwriting a file
-set.cursorline = true -- Highlight the text line of the cursor
+set.cursorline = false -- Disable highlighting the text line of the cursor
 set.number = true -- Show numberline
 set.relativenumber = true -- Show relative numberline
-set.wrap = false -- Disable wrapping of lines longer than the width of window
+set.wrap = true -- Disable wrapping of lines longer than the width of window
 set.conceallevel = 0 -- Show text normally
 set.cmdheight = 1 -- Number of screen lines to use for the command line
 set.shiftwidth = 2 -- Number of space inserted for indentation

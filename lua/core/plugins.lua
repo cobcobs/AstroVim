@@ -245,6 +245,49 @@ local astro_plugins = {
     run = "make",
   },
 
+  -- Fuzzy finder for frecent files
+  ["nvim-telescope/telescope-frecency.nvim"] = {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension("frecency")
+    end,
+    requires = {"tami5/sqlite.lua"}
+  },
+
+  -- Fuzzy finder for projects
+  ["ahmedkhalf/project.nvim"] = {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup()
+      require("telescope").load_extension("projects")
+    end
+  },
+
+  -- Clear highlighting after search
+  ["romainl/vim-cool"] = {
+    "romainl/vim-cool",
+    event = "CmdlineEnter"
+  },
+
+  -- Remember last place in file
+  ["ethanholz/nvim-lastplace"] = {
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    config = function()
+      require("nvim-lastplace").setup({
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit",
+          "gitrebase",
+          "svn",
+          "hgcommit",
+        },
+        lastplace_open_folds = true,
+      })
+    end,
+    disable = not config.enabled.lastplace,
+  },
+
   -- Git integration
   ["lewis6991/gitsigns.nvim"] = {
     "lewis6991/gitsigns.nvim",
@@ -255,13 +298,11 @@ local astro_plugins = {
     disable = not config.enabled.gitsigns,
   },
 
-  -- Start screen
-  ["glepnir/dashboard-nvim"] = {
-    "glepnir/dashboard-nvim",
-    config = function()
-      require("configs.dashboard").config()
-    end,
-    disable = not config.enabled.dashboard,
+  -- Colorscheme
+  ["rose-pine/neovim"] = {
+    "rose-pine/neovim",
+    as = "rose-pine",
+    tag = "v1.*",
   },
 
   -- Color highlighting
@@ -291,25 +332,6 @@ local astro_plugins = {
       require("configs.toggleterm").config()
     end,
     disable = not config.enabled.toggle_term,
-  },
-
-  -- Commenting
-  ["numToStr/Comment.nvim"] = {
-    "numToStr/Comment.nvim",
-    event = "BufRead",
-    config = function()
-      require("configs.comment").config()
-    end,
-    disable = not config.enabled.comment,
-  },
-
-  -- Indentation
-  ["lukas-reineke/indent-blankline.nvim"] = {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("configs.indent-line").config()
-    end,
-    disable = not config.enabled.indent_blankline,
   },
 
   -- Keymaps popup
@@ -344,6 +366,15 @@ local astro_plugins = {
     end,
   },
 
+  -- mini.nvim
+  ["echasnovski/mini.nvim"] = {
+    "echasnovski/mini.nvim",
+    config = function()
+      require("configs.mini").config()
+    end,
+    disable = not config.enabled.mini,
+  },
+
   -- Get extra JSON schemas
   ["b0o/SchemaStore.nvim"] = { "b0o/SchemaStore.nvim" },
 }
@@ -370,6 +401,7 @@ packer.startup {
       open_fn = function()
         return require("packer.util").float { border = "none" }
       end,
+      prompt_border = "none",
     },
     profile = {
       enable = true,

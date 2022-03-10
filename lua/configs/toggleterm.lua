@@ -8,7 +8,7 @@ function M.config()
 
   toggleterm.setup(require("core.utils").user_plugin_opts("toggleterm", {
     size = 10,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-t>]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -20,11 +20,11 @@ function M.config()
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
-      border = "curved",
+      border = "none",
       winblend = 0,
       highlights = {
         border = "Normal",
-        background = "Normal",
+        background = "NormalFloat",
       },
     },
   }))
