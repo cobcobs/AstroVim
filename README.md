@@ -1,11 +1,11 @@
-<h1 align="center">AstroVim</h1>
+<h1 align="center">Opinionated AstroVim</h1>
 
 <div align="center"><p>
-    <a href="https://github.com/kabinspace/AstroVim/pulse">
-      <img src="https://img.shields.io/github/last-commit/kabinspace/AstroVim?color=%4dc71f&label=Last%20Commit&logo=github&style=flat-square"/>
+    <a href="https://github.com/cobcobs/AstroVim/pulse">
+      <img src="https://img.shields.io/github/last-commit/cobcobs/AstroVim?color=%4dc71f&label=Last%20Commit&logo=github&style=flat-square"/>
     </a>
-    <a href="https://github.com/kabinspace/AstroVim/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/kabinspace/AstroVim?label=License&logo=GNU&style=flat-square"/>
+    <a href="https://github.com/cobcobs/AstroVim/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/cobcobs/AstroVim?label=License&logo=GNU&style=flat-square"/>
 	</a>
     <a href="https://neovim.io/">
       <img src="https://img.shields.io/badge/Neovim-0.6+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white"/>
@@ -16,15 +16,14 @@
 </p>
 </div>
 
-<p align="center">
-AstroVim is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins
-</p>
+Please don't use this as is. I went ahead and changed the core of AstroVim to suit my needs instead of simply editing the `settings.lua` file. Do not be like me. AstroVim's strength is that it's lightweight and modular. Use this configuration as a source of inspiration, but don't actually use it. Also, go over to [the AstroVim repo](https://github.com/kabinspace/AstroVim) and show the maintainers some love.
 
 ## 🌟 Preview
 
-![Preview1](./utils/media/preview1.png)
-![Preview2](./utils/media/preview2.png)
-![Preview33](./utils/media/preview3.png)
+![image](https://user-images.githubusercontent.com/44166162/157693280-b8fa91dc-41ae-4f31-ba96-c5c4c4bce61b.png)
+![image2](https://user-images.githubusercontent.com/44166162/157693135-e535740c-643c-45ea-ab75-b7a51737cfb0.png)
+![image3](https://user-images.githubusercontent.com/44166162/157693569-bb28d9d0-3f4b-479f-b20d-8d805f774f26.png)
+![image4](https://user-images.githubusercontent.com/44166162/157693766-226b1be1-4cf6-4b95-ae4c-bf5ca6eaea67.png)
 
 ## ⚡ Requirements
 
@@ -44,7 +43,7 @@ mv ~/.config/nvim ~/.config/nvimbackup
 #### Clone the repository
 
 ```
-git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
+git clone https://github.com/cobcobs/AstroVim ~/.config/nvim
 nvim +PackerSync
 ```
 
@@ -74,7 +73,6 @@ Run `:AstroUpdate` to get the latest updates from the repository<br>
 - File explorer with [Nvimtree](https://github.com/kyazdani42/nvim-tree.lua)
 - Autocompletion with [Cmp](https://github.com/hrsh7th/nvim-cmp)
 - Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- Statusline with [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal with [Toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - Fuzzy finding with [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -83,7 +81,7 @@ Run `:AstroUpdate` to get the latest updates from the repository<br>
 
 ## ⚙️ Configuration
 
-[User](https://github.com/kabinspace/AstroVim/blob/main/lua/user) directory is given for custom configuration
+[User](https://github.com/kabinspace/AstroVim/blob/main/lua/user) directory is given for custom configuration (this link points to the original repo)
 
 ```lua
 -- Set colorscheme
