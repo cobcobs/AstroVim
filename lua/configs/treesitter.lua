@@ -7,7 +7,6 @@ function M.config()
   end
 
   local default_opts = {
-    ensure_installed = {},
     sync_install = false,
     ignore_install = {},
     highlight = {

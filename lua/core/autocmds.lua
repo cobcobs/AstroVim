@@ -3,6 +3,18 @@ local M = {}
 local utils = require "core.utils"
 local config = utils.user_settings()
 local colorscheme = config.colorscheme
+local parsers = require("nvim-treesitter.parsers")
+function _G.ensure_treesitter_language_installed()
+	local lang = parsers.get_buf_lang()
+	if parsers.get_parser_configs()[lang] and not parsers.has_parser(lang) then
+		vim.schedule_wrap(function()
+			vim.cmd("TSInstallSync " .. lang)
+			vim.cmd([[e!]])
+		end)()
+	end
+end
+
+vim.cmd([[autocmd FileType * :lua ensure_treesitter_language_installed()]])
 
 vim.cmd [[
   augroup packer_user_config
@@ -24,6 +36,8 @@ vim.cmd [[
 ]]
 
 vim.cmd [[autocmd TermOpen * lua vim.b.miniindentscope_disable = true]]
+
+vim.cmd [[autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o]]
 
 vim.cmd(string.format(
   [[
