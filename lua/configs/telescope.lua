@@ -13,7 +13,7 @@ function M.config()
     defaults = {
 
       prompt_prefix = " ",
-      selection_caret = "❯ ",
+      selection_caret = "  ",
       path_display = { "truncate" },
       selection_strategy = "reset",
       sorting_strategy = "ascending",
