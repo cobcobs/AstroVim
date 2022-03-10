@@ -31,7 +31,7 @@ vim.cmd(string.format(
       autocmd!
       autocmd VimEnter * colorscheme %s
       autocmd Colorscheme * highlight! link LspFloatWinNormal NormalFloat
-      autocmd Colorscheme * source $HOME/.config/nvim/lua/user/colors.lua
+      autocmd Colorscheme * source $HOME/.config/nvim/lua/core/colors.lua
     augroup end]],
   colorscheme
 ))
