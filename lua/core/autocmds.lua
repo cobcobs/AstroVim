@@ -11,13 +11,13 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd [[
-  augroup cursor_off
-    autocmd!
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter * set cursorline
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup cursor_off
+--     autocmd!
+--     autocmd WinLeave * set nocursorline
+--     autocmd WinEnter * set cursorline
+--   augroup end
+-- ]]
 
 if config.enabled.dashboard and config.enabled.bufferline then
   vim.cmd [[
@@ -25,7 +25,7 @@ if config.enabled.dashboard and config.enabled.bufferline then
       autocmd!
       autocmd FileType dashboard set showtabline=0
       autocmd BufWinLeave <buffer> set showtabline=2
-      autocmd BufEnter * if &ft is "dashboard" | set laststatus=0 | else | set laststatus=2 | endif
+      autocmd BufEnter * if &ft is "dashboard" | set laststatus=0 | else | set laststatus=0 | endif
       autocmd BufEnter * if &ft is "dashboard" | set nocursorline | endif
     augroup end
   ]]

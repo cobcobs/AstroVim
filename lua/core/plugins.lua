@@ -368,7 +368,7 @@ packer.startup {
     compile_path = config.packer_file,
     display = {
       open_fn = function()
-        return require("packer.util").float { border = "rounded" }
+        return require("packer.util").float { border = "none" }
       end,
     },
     profile = {
