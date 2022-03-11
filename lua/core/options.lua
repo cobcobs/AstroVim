@@ -1,6 +1,7 @@
 local M = {}
 
 local set = vim.opt
+local let = vim.g
 
 set.title = true -- Change neovim window title
 set.ruler = false -- Disable ruler
@@ -43,5 +44,7 @@ set.pumheight = 10 -- Height of the pop up menu
 set.history = 100 -- Number of commands to remember in a history table
 set.timeoutlen = 300 -- Length of time to wait for a mapped sequence
 set.updatetime = 300 -- Length of time to wait before triggering the plugin
+let.do_filetype_lua = 1 -- Lua filetype detection
+let.did_load_filetypes = 0 -- Disable filetype.vim
 
 return M

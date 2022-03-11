@@ -29,14 +29,6 @@ local astro_plugins = {
     "nvim-lua/popup.nvim",
   },
 
-  -- Boost startup time
-  ["nathom/filetype.nvim"] = {
-    "nathom/filetype.nvim",
-    config = function()
-      vim.g.did_load_filetypes = 1
-    end,
-  },
-
   -- Cursorhold fix
   ["antoinemadec/FixCursorHold.nvim"] = {
     "antoinemadec/FixCursorHold.nvim",
