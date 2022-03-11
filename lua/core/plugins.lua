@@ -248,14 +248,14 @@ local astro_plugins = {
   -- Fuzzy finder for frecent files
   ["nvim-telescope/telescope-frecency.nvim"] = {
     "nvim-telescope/telescope-frecency.nvim",
-    cmd = "Telescope",
+    after = "telescope.nvim",
     requires = {"tami5/sqlite.lua"}
   },
 
   -- Fuzzy finder for projects
   ["ahmedkhalf/project.nvim"] = {
     "ahmedkhalf/project.nvim",
-    cmd = "Telescope",
+    after = "telescope.nvim",
     config = function()
       require("project_nvim").setup()
     end
