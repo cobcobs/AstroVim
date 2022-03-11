@@ -248,18 +248,16 @@ local astro_plugins = {
   -- Fuzzy finder for frecent files
   ["nvim-telescope/telescope-frecency.nvim"] = {
     "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension("frecency")
-    end,
+    cmd = "Telescope",
     requires = {"tami5/sqlite.lua"}
   },
 
   -- Fuzzy finder for projects
   ["ahmedkhalf/project.nvim"] = {
     "ahmedkhalf/project.nvim",
+    cmd = "Telescope",
     config = function()
       require("project_nvim").setup()
-      require("telescope").load_extension("projects")
     end
   },
 
@@ -341,29 +339,6 @@ local astro_plugins = {
       require("configs.which-key").config()
     end,
     disable = not config.enabled.which_key,
-  },
-
-  -- Smooth scrolling
-  ["karb94/neoscroll.nvim"] = {
-    "karb94/neoscroll.nvim",
-    event = "BufRead",
-    config = function()
-      require("configs.neoscroll").config()
-    end,
-    disable = not config.enabled.neoscroll,
-  },
-
-  -- Smooth escaping
-  ["max397574/better-escape.nvim"] = {
-    "max397574/better-escape.nvim",
-    event = { "InsertEnter" },
-    config = function()
-      require("better_escape").setup {
-        mapping = { "ii", "jj", "jk", "kj" },
-        timeout = vim.o.timeoutlen,
-        keys = "<ESC>",
-      }
-    end,
   },
 
   -- mini.nvim

@@ -37,7 +37,6 @@ local config = {
     toggle_term = true,
     symbols_outline = true,
     which_key = true,
-    neoscroll = true,
     ts_rainbow = true,
     ts_autotag = true,
     mini = true,

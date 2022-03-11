@@ -8,10 +8,11 @@ function M.config()
 
   local actions = require "telescope.actions"
   telescope.load_extension "fzf"
+  telescope.load_extension "projects"
+  telescope.load_extension "frecency"
 
   telescope.setup(require("core.utils").user_plugin_opts("telescope", {
     defaults = {
-
       prompt_prefix = " ",
       selection_caret = "  ",
       path_display = { "truncate" },
