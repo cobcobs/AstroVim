@@ -35,13 +35,14 @@ function M.config()
       background = {
         guifg = { attribute = "fg", highlight = "BufferLineBackground" },
         guibg = { attribute = "bg", highlight = "BufferLineBackground" },
+        gui = "italic",
       },
 
       -- Buffers
       buffer_selected = {
         guifg = { attribute = "fg", highlight = "BufferLineBufferSelected" },
         guibg = { attribute = "bg", highlight = "BufferLineBufferSelected" },
-        gui = "NONE",
+        gui = "bold",
       },
       buffer_visible = {
         guifg = { attribute = "fg", highlight = "BufferLineBufferVisible" },
