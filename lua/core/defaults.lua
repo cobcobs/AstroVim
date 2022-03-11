@@ -25,7 +25,7 @@ local config = {
     which_key = {},
   },
 
-  virtual_text = true,
+  virtual_text = false,
 
   enabled = {
     bufferline = true,
