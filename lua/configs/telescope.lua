@@ -104,7 +104,7 @@ function M.config()
       },
     },
     pickers = {
-      find_command = { "fd", "--hidden" }
+      find_command = { "fd", "--type=file", "--hidden", "--smart-case" }
     },
     vimgrep_arguments = {
       "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden", "--glob=!.git/"
